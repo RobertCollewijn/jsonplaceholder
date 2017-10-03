@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import {HomeComponent} from './web/home/home.component';
 import {RemoteServiceService} from 'app/services/remote-service.service';
@@ -19,7 +19,7 @@ import {DatePipe} from '@angular/common';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [RemoteServiceService, DatePipe],
   bootstrap: [HomeComponent]

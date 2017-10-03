@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {RemoteServiceService} from 'app/services/remote-service.service';
-import {User} from 'app/model/user';
 import {DatePipe} from '@angular/common';
 
+import {IUser} from 'app/model/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,8 @@ import {DatePipe} from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  users: User[];
-  visibleCategory: Array<User>;
+  users: IUser[];
+  visibleCategory: Array<IUser>;
 
 
   constructor(private remoteService: RemoteServiceService, private datePipe: DatePipe) {
@@ -25,7 +25,11 @@ export class HomeComponent implements OnInit {
     this.getAllUsers();
   }
 
-  eventClick(userNav: User) {
+  consoleClick() {
+    console.log('click')
+    this.users.map(t => console.log(t));
+  }
+  eventClick(userNav: IUser) {
     const index = this.visibleCategory.indexOf(userNav, 0);
     if (index > -1) {
       this.visibleCategory.splice(index, 1);
@@ -36,11 +40,7 @@ export class HomeComponent implements OnInit {
 
 
   getAllUsers() {
-
-    this.remoteService.getAllUsers().subscribe(
-      () => console.log('Finish: ' + this.datePipe.transform(Date.now(), 'yyyy-MM-dd hh:mm:ss')),
-      (error) => console.log('error: ' + error)
-    );
+    this.remoteService.getAllUsers();
   }
 
 }

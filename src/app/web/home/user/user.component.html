@@ -31,7 +31,9 @@
       </li>
       <li class="list-group-item" *ngIf="visibleMap">
         <div class="label">Geo:</div>
-        {{'lat: ' +user.address.geo.lat + ' , lng: ' + user.address.geo.lng}}
+        <a href="https://www.google.nl/maps/@{{user.address.geo.lat}},{{user.address.geo.lng}},15z?hl=nl" target="_blank">
+        {{'lat: ' + user.address.geo.lat + ' , lng: ' + user.address.geo.lng}}
+        </a>
       </li>
       <li class="list-group-item" *ngIf="visibleCompany">
         <b>{{user.company.name}}</b><br>

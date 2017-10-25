@@ -1,0 +1,28 @@
+.card {
+  margin-bottom: 8px;}
+
+.fa {
+  padding: 4px;
+  border-radius: 50%;
+  border: 3px solid #BADA55;
+}
+
+.card-body {background-color: #BADA55;
+  opacity: 0.5;}
+.selected {
+  background-color: #BADA55;
+}
+
+/*https://css-tricks.com/almanac/properties/b/border-radius/ */
+.fa:hover {
+  cursor: pointer;
+}
+
+.label {
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.list-group-item:not(:first-child) {
+  text-align: left;
+}

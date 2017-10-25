@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="card text-center" style="width: 20rem;">
+    <div class="card-body" (click)="showAlbumsClick()">
+      <h4 class="card-title">{{user.username}}</h4>
+      <p class="card-text">{{user.name}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <i class="fa fa-envelope" [ngClass]="{'selected': visibleEmail}" (click)="showEmail()" aria-hidden="true"></i>
+        <i class="fa fa-phone" [ngClass]="{'selected': visiblePhone}" (click)="showPhone()" aria-hidden="true"></i>
+        <i class="fa fa-globe" [ngClass]="{'selected': visibleWeb}" (click)="showWeb()" aria-hidden="true"></i>
+        <i class="fa fa-address-card-o" [ngClass]="{'selected': visibleAddress}" (click)="showAddress()"
+           aria-hidden="true"></i>
+        <i class="fa fa-map-o" [ngClass]="{'selected': visibleMap}" (click)="showMap()" aria-hidden="true"></i>
+        <i class="fa fa-building-o" [ngClass]="{'selected': visibleCompany}" (click)="showCompany()"
+           aria-hidden="true"></i></li>
+      <li class="list-group-item" *ngIf="visibleEmail">
+        <div class="label">Email:</div>
+        <a href="mailto:{{user.email}}"> {{user.email}}</a></li>
+      <li class="list-group-item" *ngIf="visiblePhone">
+        <div class="label">Phone:</div>
+        <a href="tel:{{user.phone}}"> {{user.phone}}</a></li>
+      <li class="list-group-item" *ngIf="visibleWeb">
+        <div class="label">Web:</div>
+        <a href="http://www.{{user.website}}" target="_blank"> {{user.website}}</a></li>
+      <li class="list-group-item" *ngIf="visibleAddress">
+        <b>{{user.name}}</b><br>
+        {{user.address.street}}<br>
+        {{user.address.suite}}<br>
+        {{user.address.zipcode + ' ' + user.address.city}}
+      </li>
+      <li class="list-group-item" *ngIf="visibleMap">
+        <div class="label">Geo:</div>
+        {{'lat: ' +user.address.geo.lat + ' , lng: ' + user.address.geo.lng}}
+      </li>
+      <li class="list-group-item" *ngIf="visibleCompany">
+        <b>{{user.company.name}}</b><br>
+        {{user.company.catchPhrase}}<br>
+        {{user.company.bs}}
+      </li>
+
+    </ul>
+  </div>
+  <div class="row" *ngIf="visibleAlbums">
+    <div class="col">
+      <app-album [album]="album" *ngFor="let album of user.albums"></app-album>
+    </div>
+  </div>
+
+</div>

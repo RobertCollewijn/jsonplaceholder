@@ -8,13 +8,15 @@ import {RemoteServiceService} from 'app/services/remote-service.service';
 import { AlbumComponent } from './web/home/album/album.component';
 import { PhotoComponent } from './web/home/photo/photo.component';
 import {DatePipe} from '@angular/common';
+import { UserComponent } from './web/home/user/user.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     AlbumComponent,
-    PhotoComponent
+    PhotoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

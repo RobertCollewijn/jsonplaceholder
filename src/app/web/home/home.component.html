@@ -1,23 +1,11 @@
-<h1>
-  JSONPlaceholder
+<h1 style="text-align: center" (click)="openJSONPlaceholder()">
+  &#123;JSON Placeholder&#125;
 </h1>
 
-<div ngClass="row">
-  <div class="col-2" (click)="consoleClick()">User</div>
-  <div class="col-10">Name</div>
-</div>
 <div *ngFor="let user of users">
-  <div class="row" (click)="eventClick(user)">
 
-    <div class="col-1">User:</div>
-    <div class="col-2">{{user.username}}</div>
-    <div class="col-9">{{user.name}}</div>
-  </div>
-  <div class="row" *ngIf="visibleCategory.indexOf(user)>-1">
-    <div class="col">
-      <app-album [album]="album" *ngFor="let album of user.albums"></app-album>
-    </div>
-  </div>
+    <app-user [user]="user"></app-user>
+
 </div>
 
 

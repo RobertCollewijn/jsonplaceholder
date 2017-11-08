@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RemoteServiceService} from 'app/services/remote-service.service';
 
+import {RemoteServiceService} from 'app/services/remote-service.service';
 import {IUser} from 'app/model/interfaces';
 
 @Component({
@@ -20,13 +20,12 @@ export class HomeComponent implements OnInit {
   }
 
   consoleClick() {
-    console.log('click');
-    this.users.map(t => console.log(t));
+    this.remoteService.sortByUserName('asc');
   }
 
   openJSONPlaceholder() {
-          window.open('https://jsonplaceholder.typicode.com/', '_blank');
-      }
+    window.open('https://jsonplaceholder.typicode.com/', '_blank');
+  }
 
   getAllUsers() {
     this.remoteService.getAllUsers();

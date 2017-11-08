@@ -2,7 +2,8 @@
   &#123;JSON Placeholder&#125;
 </h1>
 
-<div *ngFor="let user of users">
+<button (click)="consoleClick()">CLICK</button>
+<div *ngFor="let user of users" >
 
     <app-user [user]="user"></app-user>
 

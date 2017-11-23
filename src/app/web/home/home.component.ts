@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
 import {RemoteServiceService} from 'app/services/remote-service.service';
-import {IUser} from 'app/model/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +8,8 @@ import {IUser} from 'app/model/interfaces';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  users: IUser[];
 
   constructor(private remoteService: RemoteServiceService) {
-    this.users = remoteService.users;
   }
 
   ngOnInit(): void {

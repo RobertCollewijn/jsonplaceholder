@@ -4,14 +4,15 @@ import {HttpClient} from '@angular/common/http';
 
 import {IAlbum, IPhoto, IUser} from '../model/interfaces';
 
+
 @Injectable()
 export class RemoteServiceService {
 
   getApiUrl = 'https://jsonplaceholder.typicode.com';
-  users: IUser[];
+  users: IUser[] = [];
 
   constructor(private http: HttpClient, private datePipe: DatePipe) {
-    this.users = [];
+    // this.users = [];
   }
 
   addAllPhotosByAlbum(album: IAlbum) {
@@ -60,7 +61,15 @@ export class RemoteServiceService {
         // The 3rd callback handles the "complete" event.
         () => {
           this.sortByUserName('desc');
+          sessionStorage.setItem('users', JSON.stringify(this.users));
         }
       );
+
+  }
+
+  getUser(id: string): IUser {
+    console.log('getUserID: ' + id);
+    JSON.parse(sessionStorage.getItem('users')).map(user => console.log(user.id + 1));
+    return JSON.parse(sessionStorage.getItem('users')).find(user => user.id.toString() === id);
   }
 }

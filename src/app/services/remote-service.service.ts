@@ -73,8 +73,7 @@ export class RemoteServiceService {
   }
 
   getUser(id: string): IUser {
-    console.log('getUserID: ' + id);
-    JSON.parse(sessionStorage.getItem('users')).map(user => console.log(user.id + 1));
+   // JSON.parse(sessionStorage.getItem('users')).map(user => console.log(user.id + 1));
     return JSON.parse(sessionStorage.getItem('users')).find(user => user.id.toString() === id);
   }
 }

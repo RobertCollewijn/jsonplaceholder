@@ -31,16 +31,16 @@ export class UserFormComponent implements OnInit {
     this.userForm.valueChanges.subscribe(f => console.log('form: ' + JSON.stringify(f)));
     this.userForm.get('name')
       .valueChanges.subscribe(w => {
-        console.log('name: ' + w);
-        this.user.name = w;
-    })
+      console.log('name: ' + w);
+      this.user.name = w;
+    });
   }
 
   getUser(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('id: ' + id);
+    // console.log('id: ' + id);
     this.user = this.remoteService.getUser(id);
-    console.log(this.user);
+    // console.log(this.user);
   }
 
   createForm() {

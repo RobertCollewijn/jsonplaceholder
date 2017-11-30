@@ -12,18 +12,6 @@ export class NavBarComponent implements OnInit {
     {label: 'Users', link: 'users'},
   ];
 
-  tabs = [
-    {
-      label: 'Home',
-      content: 'This is the body of the homepage'
-    }, {
-      label: 'Users',
-      disabled: true,
-      content: 'This is the body of the users page'
-    },
-  ];
-
-
   constructor() {
   }
 

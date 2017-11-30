@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {IUser} from '../../model/interfaces';
 import {RemoteServiceService} from '../../services/remote-service.service';
 import {MatTableDataSource, MatSort} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: RemoteServiceService) {
+  constructor(private userService: RemoteServiceService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -38,6 +39,10 @@ export class UsersComponent implements OnInit, AfterViewInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  rowClick(user: IUser) {
+    this._router.navigate(['/user/' + user.id]);
   }
 
 }

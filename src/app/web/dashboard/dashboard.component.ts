@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IUser} from '../../model/interfaces';
 import {RemoteServiceService} from '../../services/remote-service.service';
 
@@ -17,4 +17,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  consoleClick() {
+    this.remoteService.sortByUserName('asc');
+  }
 }

@@ -16,9 +16,7 @@ export class HomeComponent implements OnInit {
     this.getAllUsers();
   }
 
-  consoleClick() {
-    this.remoteService.sortByUserName('asc');
-  }
+
 
   openJSONPlaceholder() {
     window.open('https://jsonplaceholder.typicode.com/', '_blank');
@@ -27,5 +25,7 @@ export class HomeComponent implements OnInit {
   getAllUsers() {
     this.remoteService.getAllUsers();
   }
+
+
 
 }

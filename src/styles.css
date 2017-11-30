@@ -2,3 +2,20 @@
 @import "assets/css/bootstrap.min.css";
 @import "assets/css/font-awesome.min.css";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 59px;
+}
+
+.container {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+
+}

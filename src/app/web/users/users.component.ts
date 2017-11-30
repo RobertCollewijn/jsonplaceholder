@@ -9,7 +9,7 @@ import {MatTableDataSource, MatSort} from '@angular/material';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit, AfterViewInit {
-  title = "Users";
+  title = 'Users';
   dataSource = new MatTableDataSource<IUser>();
   displayedColumns = ['name', 'email', 'phone', 'company'];
 
@@ -19,24 +19,19 @@ export class UsersComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-   this.getUsers();
+    this.userService.getUsers().subscribe(
+      data => this.dataSource.data = data
+    );
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
-  getUsers(){
+  getUsers() {
     this.userService.getUsers().subscribe(
-      data => {
-        this.dataSource.data = data;
-      },
-      // The 2nd callback handles errors.
-      (err) => console.error(err),
-      // The 3rd callback handles the "complete" event.
-      () => {
-        // this.dataSource.data = this.users;
-      });
+      data => this.dataSource.data = data
+    );
   }
 
   applyFilter(filterValue: string) {

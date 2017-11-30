@@ -7,11 +7,13 @@ import {DatePipe} from '@angular/common';
 import {HomeComponent} from './web/home/home.component';
 import {RemoteServiceService} from 'app/services/remote-service.service';
 import {RouteModule} from './app.router';
+import { NavBarComponent } from './web/nav-bar/nav-bar.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

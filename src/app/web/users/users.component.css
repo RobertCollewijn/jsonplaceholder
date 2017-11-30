@@ -1,0 +1,17 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-table .mat-row:nth-child(even) {
+  background: #f0f3f4;
+}
+
+.mat-table .mat-row:hover {
+  background: #e2e8e9;
+  cursor: pointer;
+}

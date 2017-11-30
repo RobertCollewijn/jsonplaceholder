@@ -3,6 +3,7 @@ import {DatePipe} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 
 import {IAlbum, IPhoto, IUser} from '../model/interfaces';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
@@ -41,6 +42,10 @@ export class RemoteServiceService {
       (a: IUser, b: IUser) => {
         return (order === 'asc' ? 1 : -1) * (a.username > b.username ? 1 : -1);
       });
+  }
+
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(this.getApiUrl + '/users');
   }
 
   getAllUsers() {

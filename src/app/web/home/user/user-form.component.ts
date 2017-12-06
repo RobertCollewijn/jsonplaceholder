@@ -3,6 +3,7 @@ import {IUser} from '../../../model/interfaces';
 import {RemoteServiceService} from '../../../services/remote-service.service';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserValidators} from './user-validators';
 
 @Component({
   selector: 'app-user-form',
@@ -15,8 +16,11 @@ export class UserFormComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private remoteService: RemoteServiceService) {
-    this.getUser();
-    this.createForm();
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+      this.getUser(params.id);
+      this.createForm();
+    });
   }
 
   ngOnInit() {
@@ -36,8 +40,8 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  getUser(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+  getUser(id: string): void {
+    // const id = this.route.snapshot.paramMap.get('id');
     // console.log('id: ' + id);
     this.user = this.remoteService.getUser(id);
     // console.log(this.user);
@@ -45,10 +49,34 @@ export class UserFormComponent implements OnInit {
 
   createForm() {
     this.userForm = this.fb.group({ // <-- the parent FormGroup
-      name: [this.user.name, Validators.required],
-      username: [this.user.username],
-      email: [this.user.email],
-      phone: [this.user.phone]
+      name: [this.user.name, {
+        validators: [
+          Validators.required],
+        updateOn: 'change'
+      }],
+      username: [this.user.username, {
+        validators: [
+          Validators.required,
+          Validators.maxLength(20),
+          UserValidators.uniqueName
+        ],
+        updateOn: 'change'
+      }],
+      email: [this.user.email, {
+        validators: [
+          Validators.email
+        ],
+        updateOn: 'change'
+      }],
+      phone: [this.user.phone, {
+        validators: [
+          UserValidators.telephoneNumber,
+        ]
+      }]
     });
+  }
+
+  getErrorMessage() {
+    return this.userForm.controls.email.hasError('required') ? 'You must enter a value' : '';
   }
 }

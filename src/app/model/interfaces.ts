@@ -19,10 +19,16 @@ export interface IGeo {
 }
 
 export interface IAddress {
+  // id: string;
+  type: string;
   street: string;
-  suite: string;
+  number: string;
+  numberAdditive: string;
+  zipCode: string;
   city: string;
-  postcode: string;
+  state: string;
+  country: string;
+  suite: string;
   geo: IGeo;
 }
 
@@ -31,6 +37,7 @@ export interface ICompany {
   catchPhrase: string;
   bs: string;
 }
+
 export interface IUser {
   id: string;
   name: string;
@@ -43,3 +50,17 @@ export interface IUser {
   albums: IAlbum[];
 }
 
+export interface IPhone {
+  //  id: string;
+  type?: string;
+  number: string;
+}
+
+export interface IOrganisation {
+  //  id: string;
+  name: string;
+  type: string;
+  department: string;
+  function: string;
+  responsibleFor: string;
+}

@@ -42,7 +42,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
   }
 
   rowClick(user: IUser) {
-    this._router.navigate(['/user/' + user.id]);
+    console.log('click');
+    this._router.navigate(['/person'], {queryParams: {id: user.id , from: 'jsonPlaceholder'}});
   }
 
 }

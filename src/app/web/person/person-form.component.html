@@ -1,0 +1,42 @@
+<form [formGroup]="personForm" novalidate>
+  <mat-card>
+    <mat-card-title>id: {{person?.id}}</mat-card-title>
+    <mat-card-content class="form-group">
+      <mat-form-field>
+        <input formControlName="title" matInput placeholder="title">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="prefix" matInput placeholder="prefix">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="initials" matInput placeholder="initials">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="firstName" matInput placeholder="firstName">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="insertion" matInput placeholder="insertion">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lastName" matInput placeholder="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="pronunciation" matInput placeholder="pronunciation">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="nickname" matInput placeholder="nickname">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="salutation" matInput placeholder="salutation">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="fullName" matInput placeholder="fullName">
+      </mat-form-field>
+
+    </mat-card-content>
+  </mat-card>
+
+</form>

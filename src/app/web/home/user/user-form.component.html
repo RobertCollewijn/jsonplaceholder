@@ -1,8 +1,3 @@
-<p>
-  user-form works!
-</p>
-
-
 <form [formGroup]="userForm" novalidate>
   <mat-card>
     <mat-card-title>id: {{user.id}}</mat-card-title>
@@ -10,25 +5,33 @@
       <mat-form-field>
         <input formControlName="name" matInput placeholder="Name">
       </mat-form-field>
+      <br>
       <mat-form-field>
         <input formControlName="username" matInput placeholder="Username">
       </mat-form-field>
+      <br>
       <mat-form-field>
         <input formControlName="email" matInput placeholder="Email">
+        <mat-error *ngIf="userForm.get('email').hasError">FOUT</mat-error>
       </mat-form-field>
+      <br>
       <mat-form-field>
         <input formControlName="phone" matInput placeholder="Telephone">
-      </mat-form-field>
+      </mat-form-field><br>
+     errors: {{userForm.get('username').errors | json}}
     </mat-card-content>
   </mat-card>
+
 </form>
+<p></p>
+<mat-card>
+  <p>Form value: {{ userForm.value | json }}</p>
+  <p>Form status: {{ userForm.status | json }}</p>
+  <p>Name value: {{ userForm.get('name').value }}</p>
+  <p>Name status: {{ userForm.get('name').status }}</p>
+  <p>Name pristine: {{ userForm.get('name').pristine }}</p>
+  <p>Name untouched: {{ userForm.get('name').untouched }}</p>
+  <p>Email: {{ userForm.get('email').errors | json}}</p>
 
-
-<p>Form value: {{ userForm.value | json }}</p>
-<p>Form status: {{ userForm.status | json }}</p>
-<p>Name value: {{ userForm.get('name').value }}</p>
-<p>Name status: {{ userForm.get('name').status }}</p>
-<p>Name pristine: {{ userForm.get('name').pristine }}</p>
-<p>Name untouched: {{ userForm.get('name').untouched }}</p>
-
+</mat-card>
 

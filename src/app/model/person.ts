@@ -6,8 +6,10 @@ interface IName {
   title: string; // titulatuur
   initials: string; // voorletter
   firstName: string; // voornaam
+  // middleName: string; // tussen naam / tweede voornaam
   insertion: string; // tussenvoegsel
   lastName: string; // achternaam
+  suffix: string; // toevoeging
   pronunciation: string; // uitspraak
   nickname: string; // roepnaam
   salutation: string; // aanhef
@@ -21,6 +23,7 @@ export class Name implements IName {
   firstName: string;
   insertion: string;
   lastName: string;
+  suffix: string;
   pronunciation: string;
   nickname: string;
   salutation: string;
@@ -32,6 +35,7 @@ export class Name implements IName {
               firstName: string,
               insertion: string,
               lastName: string,
+              suffix: string,
               pronunciation: string,
               nickname: string,
               salutation: string,
@@ -42,6 +46,7 @@ export class Name implements IName {
     this.firstName = firstName;
     this.insertion = insertion;
     this.lastName = lastName;
+    this.suffix = suffix;
     this.pronunciation = pronunciation;
     this.nickname = nickname;
     this.salutation = salutation;
@@ -54,6 +59,7 @@ export class Name implements IName {
              firstName?: string,
              insertion?: string,
              lastName?: string,
+             suffix?: string,
              pronunciation?: string,
              nickname?: string,
              salutation?: string,
@@ -64,6 +70,7 @@ export class Name implements IName {
     const optionFirstName = firstName ? firstName : '';
     const optionInsertion = insertion ? insertion : '';
     const optionLastName = lastName ? lastName : '';
+    const optionSuffix = suffix ? suffix : '';
     const optionPronunciation = pronunciation ? pronunciation : '';
     const optionNickname = nickname ? nickname : '';
     const optionSalutation = salutation ? salutation : '';
@@ -76,6 +83,7 @@ export class Name implements IName {
       optionFirstName,
       optionInsertion,
       optionLastName,
+      optionSuffix,
       optionPronunciation,
       optionNickname,
       optionSalutation,
@@ -112,7 +120,7 @@ export class Person implements IPerson {
 
   static newByUser(user: IUser): Person {
     const id = '';
-    const name: Name = Name.New('', '', '', '', '', '', '', '', '', user.name);
+    const name: Name = Name.New('', '', '', '', '', '', '', '', '', '', user.name);
     const phone = Phone.newPhone(user.phone);
     const newPerson: Person = new Person(id, name, [phone]);
 

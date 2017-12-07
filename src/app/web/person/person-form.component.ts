@@ -78,6 +78,7 @@ export class PersonFormComponent implements OnInit {
       firstName: [this.person.name.firstName, {}],
       insertion: [this.person.name.insertion, {}],
       lastName: [this.person.name.lastName, {}],
+      suffix: [this.person.name.suffix, {}],
       pronunciation: [this.person.name.pronunciation, {}],
       nickname: [this.person.name.nickname, {}],
       salutation: [this.person.name.salutation, {}],

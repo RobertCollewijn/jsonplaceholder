@@ -1,3 +1,17 @@
-<p>
-  persons works!
-</p>
+<div>
+  <h3>{{title}}</h3>
+
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> Firstname</mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.name.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> Lastname</mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.name.lastName}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (click)="rowClick(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>

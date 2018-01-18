@@ -17,15 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-  openJSONPlaceholder() {
-    window.open('https://jsonplaceholder.typicode.com/', '_blank');
-  }
-
   getAllUsers() {
     this.remoteService.getAllUsers();
   }
-
 
 
 }

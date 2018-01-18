@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MaterialModule} from "./app.material";
+import {MaterialModule} from './app.material';
 
-//import {HomeComponent} from "./web/home/home.component";
+// import {HomeComponent} from "./web/home/home.component";
 import {AlbumComponent} from './web/home/album/album.component';
 import {PhotoComponent} from './web/home/photo/photo.component';
 import {UserComponent} from './web/home/user/user.component';
@@ -31,6 +31,10 @@ const appRoutes: Routes = [
   {
     path: 'person',
     component: PersonFormComponent
+  },
+  {
+    path: 'persons',
+    component: PersonsComponent
   },
   {
     path: '',
@@ -60,7 +64,7 @@ const appRoutes: Routes = [
       {enableTracing: false} // <-- debugging purposes only
     )
   ],
-  exports: [RouterModule,MaterialModule],
- })
+  exports: [RouterModule, MaterialModule],
+})
 export class RouteModule {
 }

@@ -76,18 +76,19 @@ export class Name implements IName {
     const optionSalutation = salutation ? salutation : '';
     const optionFullName = fullName ? fullName : '';
 
-    const newName: Name = new Name(
-      optionPrefix,
-      optionTitle,
-      optionInitials,
-      optionFirstName,
-      optionInsertion,
-      optionLastName,
-      optionSuffix,
-      optionPronunciation,
-      optionNickname,
-      optionSalutation,
-      optionFullName);
+    const newName: Name = {
+      prefix: optionPrefix,
+      title: optionTitle,
+      initials: optionInitials,
+      firstName: optionFirstName,
+      insertion: optionInsertion,
+      lastName: optionLastName,
+      suffix: optionSuffix,
+      pronunciation: optionPronunciation,
+      nickname: optionNickname,
+      salutation: optionSalutation,
+      fullName: optionFullName
+    };
 
     return newName;
   }
@@ -117,13 +118,31 @@ export class Person implements IPerson {
     this.phone = phone;
   }
 
+static new(): Person {
+  const id = '';
+  const name: Name = Name.New('', '', '', '', '', '', '', '', '', '', '');
+  const phone: Phone = {type: '', number: ''}; // Phone.newPhone(user.phone);
+  const newPerson: Person = new Person(id, name, [phone]);
+  const nPerson: Person = {
+    id: id,
+    name: name,
+    phone: [phone]
+  };
+
+  return nPerson;
+}
 
   static newByUser(user: IUser): Person {
     const id = '';
     const name: Name = Name.New('', '', '', '', '', '', '', '', '', '', user.name);
-    const phone = Phone.newPhone(user.phone);
+    const phone: Phone = {type: '', number: user.phone}; // Phone.newPhone(user.phone);
     const newPerson: Person = new Person(id, name, [phone]);
+    const nPerson: Person = {
+      id: id,
+      name: name,
+      phone: [phone]
+    };
 
-    return newPerson;
+    return nPerson;
   }
 }
